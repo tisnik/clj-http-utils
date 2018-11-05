@@ -1,6 +1,6 @@
-(ns clj-http-utils.core-test
+(ns clj-http-utils.http-utils-test
   (:require [clojure.test :refer :all]
-            [clj-http-utils.core :refer :all]))
+            [clj-http-utils.http-utils-test :refer :all]))
 
 (deftest a-test
   (testing "FIXME, I fail."
