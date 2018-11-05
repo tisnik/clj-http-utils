@@ -10,7 +10,7 @@
 ;      Pavel Tisnovsky
 ;
 
-(defproject clj-http-utils "0.1.0-SNAPSHOT"
+(defproject org.clojars.tisnik/clj-http-utils "0.1.0-SNAPSHOT"
     :description "Utility functions for handling HTTP protocol."
     :url "http://example.com/FIXME"
     :license {:name "Eclipse Public License"
