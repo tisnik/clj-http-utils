@@ -12,8 +12,40 @@
 
 (ns clj-http-utils.http-utils-test
   (:require [clojure.test :refer :all]
-            [clj-http-utils.http-utils-test :refer :all]))
+            [clj-http-utils.http-utils :refer :all]))
 
-(deftest a-test
-  (testing "FIXME, I fail."
-    (is (= 0 1))))
+;
+; Common functions used by tests.
+;
+
+(defn callable?
+    "Test if given function-name is bound to the real function."
+    [function-name]
+    (clojure.test/function? function-name))
+
+;
+; Tests for function existence
+;
+
+(deftest test-return-file-existence
+    "Check that the clj-http-utils.http-utils/return-file definition exists."
+    (testing "if the clj-http-utils.http-utils/return-file definition exists."
+        (is (callable? 'clj-http-utils.http-utils/return-file))))
+
+
+(deftest test-cache-control-headers-existence
+    "Check that the clj-http-utils.http-utils/cache-control-headers definition exists."
+    (testing "if the clj-http-utils.http-utils/cache-control-headers definition exists."
+        (is (callable? 'clj-http-utils.http-utils/cache-control-headers))))
+
+
+(deftest test-png-response-existence
+    "Check that the clj-http-utils.http-utils/png-response definition exists."
+    (testing "if the clj-http-utils.http-utils/png-response definition exists."
+        (is (callable? 'clj-http-utils.http-utils/png-response))))
+
+
+(deftest test-gif-response-existence
+    "Check that the clj-http-utils.http-utils/gif-response definition exists."
+    (testing "if the clj-http-utils.http-utils/gif-response definition exists."
+        (is (callable? 'clj-http-utils.http-utils/gif-response))))
