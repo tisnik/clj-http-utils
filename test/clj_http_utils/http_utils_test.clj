@@ -19,33 +19,34 @@
 ;
 
 (defn callable?
-    "Test if given function-name is bound to the real function."
-    [function-name]
-    (clojure.test/function? function-name))
+  "Test if given function-name is bound to the real function."
+  [function-name]
+  (clojure.test/function? function-name))
 
 ;
 ; Tests for function existence
 ;
 
 (deftest test-return-file-existence
-    "Check that the clj-http-utils.http-utils/return-file definition exists."
-    (testing "if the clj-http-utils.http-utils/return-file definition exists."
-        (is (callable? 'clj-http-utils.http-utils/return-file))))
+  "Check that the clj-http-utils.http-utils/return-file definition exists."
+  (testing "if the clj-http-utils.http-utils/return-file definition exists."
+           (is (callable? 'clj-http-utils.http-utils/return-file))))
 
 
 (deftest test-cache-control-headers-existence
-    "Check that the clj-http-utils.http-utils/cache-control-headers definition exists."
-    (testing "if the clj-http-utils.http-utils/cache-control-headers definition exists."
-        (is (callable? 'clj-http-utils.http-utils/cache-control-headers))))
+  "Check that the clj-http-utils.http-utils/cache-control-headers definition exists."
+  (testing
+    "if the clj-http-utils.http-utils/cache-control-headers definition exists."
+    (is (callable? 'clj-http-utils.http-utils/cache-control-headers))))
 
 
 (deftest test-png-response-existence
-    "Check that the clj-http-utils.http-utils/png-response definition exists."
-    (testing "if the clj-http-utils.http-utils/png-response definition exists."
-        (is (callable? 'clj-http-utils.http-utils/png-response))))
+  "Check that the clj-http-utils.http-utils/png-response definition exists."
+  (testing "if the clj-http-utils.http-utils/png-response definition exists."
+           (is (callable? 'clj-http-utils.http-utils/png-response))))
 
 
 (deftest test-gif-response-existence
-    "Check that the clj-http-utils.http-utils/gif-response definition exists."
-    (testing "if the clj-http-utils.http-utils/gif-response definition exists."
-        (is (callable? 'clj-http-utils.http-utils/gif-response))))
+  "Check that the clj-http-utils.http-utils/gif-response definition exists."
+  (testing "if the clj-http-utils.http-utils/gif-response definition exists."
+           (is (callable? 'clj-http-utils.http-utils/gif-response))))
