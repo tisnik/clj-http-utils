@@ -12,12 +12,12 @@
 
 (defproject org.clojars.tisnik/clj-http-utils "0.1.0-SNAPSHOT"
   :description "Utility functions for handling HTTP protocol."
-  :url "http://example.com/FIXME"
+  :url "https://github.com/tisnik/clj-http-utils"
   :license {:name "Eclipse Public License",
             :url "http://www.eclipse.org/legal/epl-v10.html"}
   :dependencies [[org.clojure/clojure "1.10.1"]
                  [ring/ring-core "1.8.2"]
                  [org.clojure/tools.logging "0.3.1"]]
-  :plugins [[test2junit "1.1.0"]
-            [codox "0.8.11"]
+  :plugins [[lein-codox "0.10.7"]
+            [test2junit "1.1.0"]
             [lein-cloverage "1.0.7-SNAPSHOT"]])
