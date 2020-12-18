@@ -3,6 +3,8 @@
 A Clojure library that contains utility functions to work with HTTP requests
 and responses.
 
+[Depencendies](doc/dependencies.clj)
+
 ## Usage
 
 FIXME
