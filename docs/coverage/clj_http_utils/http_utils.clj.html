@@ -1,0 +1,182 @@
+<html>
+ <head>
+   <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+  <link rel="stylesheet" href="../coverage.css"/>  <title> clj_http_utils/http_utils.clj </title>
+ </head>
+ <body>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                001&nbsp;&nbsp;;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                002&nbsp;&nbsp;;&nbsp;&nbsp;(C)&nbsp;Copyright&nbsp;2018,&nbsp;2020&nbsp;&nbsp;Pavel&nbsp;Tisnovsky
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                003&nbsp;&nbsp;;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                004&nbsp;&nbsp;;&nbsp;&nbsp;All&nbsp;rights&nbsp;reserved.&nbsp;This&nbsp;program&nbsp;and&nbsp;the&nbsp;accompanying&nbsp;materials
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                005&nbsp;&nbsp;;&nbsp;&nbsp;are&nbsp;made&nbsp;available&nbsp;under&nbsp;the&nbsp;terms&nbsp;of&nbsp;the&nbsp;Eclipse&nbsp;Public&nbsp;License&nbsp;v1.0
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                006&nbsp;&nbsp;;&nbsp;&nbsp;which&nbsp;accompanies&nbsp;this&nbsp;distribution,&nbsp;and&nbsp;is&nbsp;available&nbsp;at
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                007&nbsp;&nbsp;;&nbsp;&nbsp;http:&#x2F;&#x2F;www.eclipse.org&#x2F;legal&#x2F;epl-v10.html
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                008&nbsp;&nbsp;;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                009&nbsp;&nbsp;;&nbsp;&nbsp;Contributors:
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                010&nbsp;&nbsp;;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Pavel&nbsp;Tisnovsky
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                011&nbsp;&nbsp;;
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                012&nbsp;&nbsp;
+                </span><br/>
+<span class="partial" title="1 out of 3 forms covered">
+                013&nbsp;&nbsp;(ns&nbsp;clj-http-utils.http-utils
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                014&nbsp;&nbsp;&nbsp;&nbsp;&quot;Module&nbsp;that&nbsp;contains&nbsp;several&nbsp;HTTP-related&nbsp;utility&nbsp;functions.&quot;)
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                015&nbsp;&nbsp;
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                016&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                017&nbsp;&nbsp;(require&nbsp;&#x27;[ring.util.response&nbsp;&nbsp;&nbsp;&nbsp;:as&nbsp;http-response])
+                </span><br/>
+<span class="covered" title="3 out of 3 forms covered">
+                018&nbsp;&nbsp;(require&nbsp;&#x27;[clojure.tools.logging&nbsp;:as&nbsp;log])
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                019&nbsp;&nbsp;
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                020&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                021&nbsp;&nbsp;(defn&nbsp;return-file
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                022&nbsp;&nbsp;&nbsp;&nbsp;&quot;Create&nbsp;HTTP&nbsp;response&nbsp;containing&nbsp;content&nbsp;read&nbsp;from&nbsp;specified&nbsp;file.
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                023&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Special&nbsp;value&nbsp;nil&nbsp;&#x2F;&nbsp;HTTP&nbsp;response&nbsp;404&nbsp;is&nbsp;returned&nbsp;in&nbsp;case&nbsp;of&nbsp;any&nbsp;I&#x2F;O&nbsp;error.&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                024&nbsp;&nbsp;&nbsp;&nbsp;[^String&nbsp;prefix&nbsp;file-name&nbsp;content-type]
+                </span><br/>
+<span class="not-covered" title="0 out of 4 forms covered">
+                025&nbsp;&nbsp;&nbsp;&nbsp;(let&nbsp;[file&nbsp;(new&nbsp;java.io.File&nbsp;prefix&nbsp;file-name)]
+                </span><br/>
+<span class="not-covered" title="0 out of 18 forms covered">
+                026&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(log&#x2F;info&nbsp;&quot;Returning&nbsp;file&nbsp;&quot;&nbsp;(.getAbsolutePath&nbsp;file))
+                </span><br/>
+<span class="not-covered" title="0 out of 2 forms covered">
+                027&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(if&nbsp;(.exists&nbsp;file)
+                </span><br/>
+<span class="not-covered" title="0 out of 4 forms covered">
+                028&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;(http-response&#x2F;response&nbsp;file)
+                </span><br/>
+<span class="not-covered" title="0 out of 2 forms covered">
+                029&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(http-response&#x2F;content-type&nbsp;content-type))
+                </span><br/>
+<span class="not-covered" title="0 out of 18 forms covered">
+                030&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(log&#x2F;error&nbsp;&quot;return-file():&nbsp;can&nbsp;not&nbsp;access&nbsp;file:&nbsp;&quot;&nbsp;(.getName&nbsp;file)))))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                031&nbsp;&nbsp;
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                032&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                033&nbsp;&nbsp;(defn&nbsp;cache-control-headers
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                034&nbsp;&nbsp;&nbsp;&nbsp;&quot;Update&nbsp;the&nbsp;response&nbsp;to&nbsp;contains&nbsp;all&nbsp;cache-control&nbsp;headers.&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                035&nbsp;&nbsp;&nbsp;&nbsp;[response]
+                </span><br/>
+<span class="not-covered" title="0 out of 3 forms covered">
+                036&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;response
+                </span><br/>
+<span class="not-covered" title="0 out of 5 forms covered">
+                037&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc-in&nbsp;[:headers&nbsp;&quot;Cache-Control&quot;]
+                </span><br/>
+<span class="not-covered" title="0 out of 4 forms covered">
+                038&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;[&quot;must-revalidate&quot;&nbsp;&quot;no-cache&quot;&nbsp;&quot;no-store&quot;])
+                </span><br/>
+<span class="not-covered" title="0 out of 6 forms covered">
+                039&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc-in&nbsp;[:headers&nbsp;&quot;Expires&quot;]&nbsp;&quot;0&quot;)
+                </span><br/>
+<span class="not-covered" title="0 out of 4 forms covered">
+                040&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(assoc-in&nbsp;[:headers&nbsp;&quot;Pragma&quot;]&nbsp;&quot;no-cache&quot;)))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                041&nbsp;&nbsp;
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                042&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                043&nbsp;&nbsp;(defn&nbsp;png-response
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                044&nbsp;&nbsp;&nbsp;&nbsp;&quot;Update&nbsp;the&nbsp;response&nbsp;with&nbsp;the&nbsp;content&nbsp;type&nbsp;valid&nbsp;for&nbsp;PNG&nbsp;images.&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                045&nbsp;&nbsp;&nbsp;&nbsp;[image-data]
+                </span><br/>
+<span class="not-covered" title="0 out of 2 forms covered">
+                046&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;image-data
+                </span><br/>
+<span class="not-covered" title="0 out of 2 forms covered">
+                047&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(http-response&#x2F;response)
+                </span><br/>
+<span class="not-covered" title="0 out of 3 forms covered">
+                048&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(http-response&#x2F;content-type&nbsp;&quot;image&#x2F;png&quot;)
+                </span><br/>
+<span class="not-covered" title="0 out of 1 forms covered">
+                049&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache-control-headers))
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                050&nbsp;&nbsp;
+                </span><br/>
+<span class="blank" title="0 out of 0 forms covered">
+                051&nbsp;&nbsp;
+                </span><br/>
+<span class="covered" title="1 out of 1 forms covered">
+                052&nbsp;&nbsp;(defn&nbsp;gif-response
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                053&nbsp;&nbsp;&nbsp;&nbsp;&quot;Update&nbsp;the&nbsp;response&nbsp;with&nbsp;the&nbsp;content&nbsp;type&nbsp;valid&nbsp;for&nbsp;GIF&nbsp;images.&quot;
+                </span><br/>
+<span class="not-tracked" title="0 out of 0 forms covered">
+                054&nbsp;&nbsp;&nbsp;&nbsp;[image-data]
+                </span><br/>
+<span class="not-covered" title="0 out of 2 forms covered">
+                055&nbsp;&nbsp;&nbsp;&nbsp;(-&gt;&nbsp;image-data
+                </span><br/>
+<span class="not-covered" title="0 out of 2 forms covered">
+                056&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(http-response&#x2F;response)
+                </span><br/>
+<span class="not-covered" title="0 out of 3 forms covered">
+                057&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;(http-response&#x2F;content-type&nbsp;&quot;image&#x2F;gif&quot;)
+                </span><br/>
+<span class="not-covered" title="0 out of 1 forms covered">
+                058&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;cache-control-headers))
+                </span><br/>
+ </body>
+</html>
