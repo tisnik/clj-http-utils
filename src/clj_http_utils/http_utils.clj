@@ -1,5 +1,5 @@
 ;
-;  (C) Copyright 2018, 2020  Pavel Tisnovsky
+;  (C) Copyright 2018, 2020, 2021  Pavel Tisnovsky
 ;
 ;  All rights reserved. This program and the accompanying materials
 ;  are made available under the terms of the Eclipse Public License v1.0
@@ -20,7 +20,8 @@
 
 (defn return-file
   "Create HTTP response containing content read from specified file.
-   Special value nil / HTTP response 404 is returned in case of any I/O error."
+   Special value nil / HTTP response 404 is returned in case of any I/O error
+   that can happen during file operations."
   [^String prefix file-name content-type]
   (let [file (new java.io.File prefix file-name)]
     (log/info "Returning file " (.getAbsolutePath file))
@@ -55,4 +56,13 @@
   (-> image-data
       (http-response/response)
       (http-response/content-type "image/gif")
+      cache-control-headers))
+
+
+(defn jpeg-response
+  "Update the response with the content type valid for JPEG images."
+  [image-data]
+  (-> image-data
+      (http-response/response)
+      (http-response/content-type "image/jpeg")
       cache-control-headers))
