@@ -1,5 +1,5 @@
 ;
-;  (C) Copyright 2018, 2020  Pavel Tisnovsky
+;  (C) Copyright 2018, 2020, 2021  Pavel Tisnovsky
 ;
 ;  All rights reserved. This program and the accompanying materials
 ;  are made available under the terms of the Eclipse Public License v1.0
@@ -50,3 +50,9 @@
   "Check that the clj-http-utils.http-utils/gif-response definition exists."
   (testing "if the clj-http-utils.http-utils/gif-response definition exists."
            (is (callable? 'clj-http-utils.http-utils/gif-response))))
+
+
+(deftest test-jpeg-response-existence
+  "Check that the clj-http-utils.http-utils/jpeg-response definition exists."
+  (testing "if the clj-http-utils.http-utils/jpeg-response definition exists."
+           (is (callable? 'clj-http-utils.http-utils/jpeg-response))))
